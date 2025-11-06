@@ -80,9 +80,9 @@
     #splash img { width: 160px; opacity: 0; animation: fadeIn 1.2s ease forwards; filter: drop-shadow(0 8px 24px rgba(0,0,0,.35)); }
   @keyframes fadeIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
   @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+  #splash { pointer-events: none; } }
   /* mejora de transición de la página */
-  main { opacity: 0; transition: opacity .6s ease; }
-  body.show main { opacity: 1; }
+  /* quitamos gating por JS para evitar pantalla vacía */
     }
   </style>
   <header class="container">
@@ -233,7 +233,11 @@
 
     // Mostrar la página tras el splash
     window.addEventListener('load', () => {
-      setTimeout(() => document.body.classList.add('show'), 1600);
+      // Fallback: elimina el splash por si falla la animación en algunos navegadores
+      setTimeout(() => {
+        const sp = document.getElementById('splash');
+        if (sp) sp.style.display = 'none';
+      }, 2600);
       resizeGForm();
     });
     window.addEventListener('resize', () => resizeGForm());
@@ -248,4 +252,5 @@
   </script>
 </body>
 </html>
+
 
