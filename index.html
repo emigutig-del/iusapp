@@ -8,297 +8,601 @@
   <meta property="og:title" content="IUSAPP — Asesoría legal accesible y rápida" />
   <meta property="og:description" content="Orientación legal en minutos. Regístrate para recibir acceso anticipado." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=IUSAPP" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/020617/ffffff&text=IUSAPP" />
+  <meta name="theme-color" content="#020617" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;      /* slate-900 */
-      --bg-soft: #111827; /* gray-900 */
-      --card: #0b1220;    /* darker */
-      --text: #e5e7eb;    /* gray-200 */
-      --muted: #94a3b8;   /* slate-400 */
-      --brand: #22d3ee;   /* cyan-400 */
-      --brand-2: #60a5fa; /* blue-400 */
-      --ok: #34d399;      /* green-400 */
-      --warn: #fbbf24;    /* amber-400 */
-      --danger:#f87171;   /* red-400 */
+      --bg: #020617;
+      --bg-soft: #020617;
+      --card: #020617;
+      --surface: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --brand: #22d3ee;
+      --brand-2: #60a5fa;
       --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --shadow-soft: 0 18px 45px rgba(15,23,42,.55);
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-      color: var(--text); background: radial-gradient(1000px 600px at 70% -10%, rgba(34,211,238,.08), transparent), linear-gradient(180deg, var(--bg), var(--bg-soft));
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 1080px; margin: 0 auto; padding: 24px; }
-    .badge { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); border: 1px solid rgba(255,255,255,.08); padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.03); }
-    header { display:flex; align-items:center; justify-content:space-between; padding: 12px 0 8px; position: sticky; top: 0; backdrop-filter: blur(10px); background: linear-gradient(180deg, rgba(15,23,42,.9), rgba(15,23,42,.6)); z-index: 10; border-bottom: 1px solid rgba(255,255,255,.06); }
-    .logo { display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px; }
-    .logo-mark { width: 28px; height:28px; border-radius: 8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); display:grid; place-items:center; box-shadow: var(--shadow); color:#0b1220; font-weight:800; }
-    .cta { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius: 999px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#0b1220; font-weight:700; border:none; cursor:pointer; box-shadow: var(--shadow); }
-    .hero { padding: 72px 0 48px; display:grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items:center; }
-    .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.05; margin: 16px 0; }
-    .hero p { font-size: clamp(16px, 2vw, 18px); color: var(--muted); }
-    .card { background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); box-shadow: var(--shadow); }
-    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
-    .metric { padding: 14px; border-radius: 12px; background: rgba(255,255,255,.03); border: 1px dashed rgba(255,255,255,.08); text-align:center; }
-    .metric b { display:block; font-size: 22px; }
-    .form { padding: 20px; display: grid; gap: 12px; }
-    .input { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: rgba(2,6,23,.7); color: var(--text); }
-    .input::placeholder { color: #94a3b880; }
-    .section { padding: 54px 0; }
-    .grid { display:grid; gap:16px; }
-    .grid.features { grid-template-columns: repeat(3, 1fr); }
-    .feature { padding: 16px; }
-    .feature h3 { margin: 6px 0 8px; font-size: 18px; }
-    .steps { grid-template-columns: repeat(3, 1fr); }
-    .step { padding: 18px; border-radius: 14px; border:1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.02); }
-    .faq { grid-template-columns: 1fr 1fr; }
-    .q { padding: 18px; border-radius: 14px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); }
-    footer { padding: 36px 0 60px; color: var(--muted); text-align:center; font-size: 14px; }
-    .pill { display:inline-block; padding: 6px 10px; border:1px solid rgba(255,255,255,.12); border-radius: 999px; color: var(--muted); font-size: 12px; }
 
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .grid.features, .steps, .faq { grid-template-columns: 1fr; }
-      header { position: sticky; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 80% 0%, rgba(56,189,248,.12), transparent),
+        radial-gradient(900px 600px at 0% 100%, rgba(37,99,235,.18), transparent),
+        linear-gradient(180deg, #020617, #020617);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 20px 56px;
+    }
+
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 0% 0%, #f9fafb, #22d3ee 40%, #1d4ed8 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: var(--shadow-soft);
+      color:#020617;
+      font-weight:800;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .logo-text span:first-child {
+      font-weight:700;
+      letter-spacing:.08em;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .logo-text span:last-child {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-cta {
+      font-size: 13px;
+      border-radius: 999px;
+      padding: 9px 14px;
+      border: 1px solid rgba(148,163,184,.6);
+      color: var(--muted);
+      background: rgba(15,23,42,.7);
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .header-cta strong {
+      color: var(--text);
+      font-weight:600;
+    }
+
+    .header-cta-arrow {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .hero {
+      display:grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: stretch;
+      margin-top: 8px;
+    }
+
+    .hero-left {
+      padding-right: 8px;
+    }
+
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,.5);
+      background: radial-gradient(circle at 0 0, rgba(148,163,184,.3), transparent);
+      color: var(--muted);
+    }
+
+    .badge-dot {
+      width:6px;
+      height:6px;
+      border-radius:999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,.3);
+    }
+
+    .hero h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.1;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .hero-highlight {
+      display:inline-block;
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,.9);
+      border: 1px solid rgba(148,163,184,.5);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-highlight b {
+      color: var(--brand);
+    }
+
+    .hero-metrics {
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      min-width: 120px;
+    }
+    .metric-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .metric-value {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .hero-right {
+      background: radial-gradient(circle at 0% 0%, rgba(248,250,252,.08), rgba(15,23,42,1));
+      border-radius: 24px;
+      border: 1px solid rgba(148,163,184,.5);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 20px 20px;
+    }
+
+    .form-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 4px;
+    }
+
+    .form-sub {
+      margin: 0 0 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .form-banner {
+      margin-top: 8px;
+      margin-bottom: 12px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      background: rgba(250,204,21,.08);
+      border: 1px solid rgba(250,204,21,.5);
+      color: #facc15;
+    }
+
+    .gform-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(31,41,55,.9);
+      background:#020617;
+    }
+
+    iframe#gform {
+      display:block;
+      width:100%;
+      border:0;
+    }
+
+    .form-actions {
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .btn-primary {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color:#020617;
+      font-weight:600;
+      font-size: 13px;
+      border:none;
+    }
+
+    .btn-secondary {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    .whatsapp-link {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .whatsapp-link a {
+      color: var(--brand-2);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .section {
+      margin-top: 52px;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      margin: 0 0 6px;
+    }
+
+    .section-sub {
+      margin: 0 0 24px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .benefits {
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .benefit-card {
+      border-radius: 18px;
+      border: 1px solid rgba(31,41,55,.9);
+      background: radial-gradient(circle at 0 0, rgba(148,163,184,.18), rgba(2,6,23,1));
+      padding: 16px 16px 18px;
+    }
+
+    .benefit-tag {
+      display:inline-block;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,.6);
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .benefit-card h3 {
+      font-size: 15px;
+      margin: 0 0 6px;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .steps {
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .step-card {
+      border-radius: 18px;
+      border: 1px solid rgba(31,41,55,.9);
+      background: rgba(15,23,42,.9);
+      padding: 16px 16px 18px;
+    }
+
+    .step-number {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,.7);
+      font-size: 12px;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .step-card h3 {
+      font-size: 15px;
+      margin: 0 0 6px;
+    }
+
+    .step-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cta-final {
+      text-align:center;
+      margin-top: 52px;
+      padding: 26px 18px 30px;
+      border-radius: 24px;
+      border: 1px solid rgba(148,163,184,.5);
+      background: radial-gradient(circle at 0 0, rgba(148,163,184,.22), rgba(2,6,23,1));
+    }
+
+    .cta-final h2 {
+      font-size: 22px;
+      margin: 0 0 10px;
+    }
+
+    .cta-final p {
+      margin: 0 0 18px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .cta-final .btn-primary {
+      font-size: 14px;
+      padding: 11px 20px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(31,41,55,.9);
+      font-size: 12px;
+      color: var(--muted);
+      text-align:center;
+    }
+
+    footer a {
+      color: var(--brand-2);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero-right {
+        margin-top: 6px;
+      }
+      .benefits, .steps {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .header-cta {
+        display:none;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Splash Screen: muestra el logo y luego desaparece -->
-  <div id="splash">
-    <img src="logo.png" alt="IUSAPP Logo">
-  </div>
- <style>
-    #splash {
-      position: fixed;
-      z-index: 9999;
-      inset: 0;
-      background: #0f172a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeOut 1s ease 2s forwards;
-      pointer-events: none;
-    }
-
-    #splash img {
-      width: 160px;
-      opacity: 0;
-      animation: fadeIn 1.2s ease forwards;
-      filter: drop-shadow(0 8px 24px rgba(0,0,0,.35));
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.92); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-  </style>
-  <header class="container">
-    <div class="logo" style="display:flex; align-items:center; gap:10px;">
-  <img src="logo.png" alt="IUSAPP Logo" style="height:40px; border-radius:8px;">
-  <span style="font-weight:700;">IUSAPP</span>
-</div>
-   <a
-  href="https://docs.google.com/forms/d/e/1FAIpQLSdb-rNkbN_kvuF0tNSbOloB8GhE5MxDAD0w5P3yYjzreyfAqg/viewform"
-  class="cta"
-  id="cta-top"
-  target="_blank"
-  rel="noopener"
->
-  Obtén acceso anticipado
-</a>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <div>
-        <span class="badge">Acceso a la justicia • México</span>
-        <h1>Asesoría legal clara, rápida y accesible<br>para todos</h1>
-        <p>Más del 70% de quienes enfrentan un problema legal en México no buscan ayuda profesional por costo, distancia o desconfianza. Con IUSAPP, obtén orientación inicial en minutos y conecta con abogadas/os certificados.</p>
-       <p style="margin-top:12px; color:#facc15; font-size:14px;">
-  Muy pronto: apúntate en el formulario y te contactaremos cuando lancemos el piloto.
-</p>
-        <div class="metrics">
-          <div class="metric"><b id="visitas">0</b><small>Visitas</small></div>
-          <div class="metric"><b id="clics">0</b><small>Clicks al CTA</small></div>
-          <div class="metric"><b id="registros">0</b><small>Registros</small></div>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">§</div>
+        <div class="logo-text">
+          <span>IUSAPP</span>
+          <span>Acceso legal digital</span>
         </div>
       </div>
-      <div class="card" style="padding:20px;">
-  <iframe 
-    id="gform"
-    src="https://docs.google.com/forms/d/e/1FAIpQLSdb-rNkbN_kvuF0tNSbOloB8GhE5MxDAD0w5P3yYjzreyfAqg/viewform?embedded=true" 
-    width="100%" 
-    height="900" 
-    frameborder="0" 
-    marginheight="0" 
-    marginwidth="0">Loading…</iframe>
-  <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; align-items:center;">
-    <a class="cta" href="https://wa.me/5214420000000?text=Hola%20IUSAPP%2C%20ya%20llen%C3%A9%20el%20formulario%20y%20quiero%20saber%20mis%20pr%C3%B3ximos%20pasos" target="_blank" rel="noopener">Contactar por WhatsApp</a>
-    <span class="pill">¿Ya enviaste el formulario? ¡Gracias por registrarte!</span>
-  </div>
-</div>
-    </section>
-
-    <section class="section">
-      <div class="grid features">
-        <div class="feature card">
-          <span class="pill">Problema</span>
-          <h3>Acceso desigual</h3>
-          <p class="muted">Barreras económicas y geográficas impiden que millones reciban orientación o representación legal a tiempo.</p>
-        </div>
-        <div class="feature card">
-          <span class="pill">Solución</span>
-          <h3>Plataforma 24/7</h3>
-          <p>Interfaz simple + red de abogadas/os certificados + recursos claros para tomar decisiones informadas.</p>
-        </div>
-        <div class="feature card">
-          <span class="pill">Valor</span>
-          <h3>Rápido y accesible</h3>
-          <p>Orientación inicial en minutos y costos transparentes. Empieza gratis y paga solo cuando lo necesites.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>¿Cómo funciona?</h2>
-      <div class="grid steps">
-        <div class="step">
-          <h3>1) Cuéntanos tu caso</h3>
-          <p>Completa un breve cuestionario para entender el tipo de problema legal que enfrentas.</p>
-        </div>
-        <div class="step">
-          <h3>2) Obtén orientación</h3>
-          <p>Recibe una guía clara con próximos pasos y opciones. Si lo deseas, conecta con una persona especialista.</p>
-        </div>
-        <div class="step">
-          <h3>3) Da seguimiento</h3>
-          <p>Guarda tus documentos, resuelve dudas por chat y mide avances desde un mismo lugar.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="grid faq">
-        <div class="q">
-          <h3>¿Cuánto cuesta?</h3>
-          <p>La orientación inicial es gratuita. Los servicios especializados tienen costo transparente por caso.</p>
-        </div>
-        <div class="q">
-          <h3>¿Quién responde?</h3>
-          <p>Abogadas y abogados verificados. Antes de agendar, verás su perfil, especialidad y valoraciones.</p>
-        </div>
-        <div class="q">
-          <h3>¿Mis datos están seguros?</h3>
-          <p>Usamos buenas prácticas de seguridad y solo compartimos tu información con tu consentimiento.</p>
-        </div>
-        <div class="q">
-          <h3>¿Puedo darme de baja?</h3>
-          <p>Sí. En cualquier momento puedes solicitar la eliminación de tus datos y no recibir más comunicaciones.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="text-align:center">
-      <h2>¿Te interesa participar en el piloto?</h2>
-      <p class="muted">Regístrate y te contactaremos con prioridad.</p>
       <a
-  href="https://docs.google.com/forms/d/e/1FAIpQLSdb-rNkbN_kvuF0tNSbOloB8GhE5MxDAD0w5P3yYjzreyfAqg/viewform"
-  class="cta"
-  id="cta-bottom"
-  target="_blank"
-  rel="noopener"
->
-        Quiero entrar a la lista de espera</a>
-    </section>
-    <!-- Segundo CTA -->
-  <section style="margin-top:40px; text-align:center;">
-    <h2 style="font-size:28px; margin-bottom:10px;">¿Listo para recibir orientación legal?</h2>
-    <p style="color:#94a3b8; margin-bottom:20px;">Déjanos tus datos y te contactamos hoy mismo.</p>
-    <a href="#registro" class="cta" style="font-size:18px; padding:14px 22px;">Quiero orientación ahora</a>
-  </section>
+        class="header-cta"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdb-rNkbN_kvuF0tNSbOloB8GhE5MxDAD0w5P3yYjzreyfAqg/viewform"
+        target="_blank"
+        rel="noopener"
+      >
+        <strong>Obtén acceso anticipado</strong>
+        <span class="header-cta-arrow">↗</span>
+      </a>
+    </header>
 
-</main>
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Acceso a la justicia • México
+          </div>
+          <h1>Asesoría legal clara, rápida y accesible para todas las personas.</h1>
+          <p class="hero-sub">
+            Millones de personas enfrentan problemas legales sin recibir ayuda profesional por costo, distancia o desconfianza.
+            IUSAPP busca reducir esa brecha acercando orientación legal inicial de forma digital.
+          </p>
+          <span class="hero-highlight">
+            Muy pronto: <b>regístrate en el formulario</b> y te contactaremos cuando lancemos el piloto.
+          </span>
 
-  <footer style="text-align:center; padding:30px 20px; margin-top:40px; border-top:1px solid rgba(255,255,255,0.1); color:#94a3b8;">
-  <p style="margin:6px 0; font-size:14px;">IUSAPP — Plataforma digital de orientación legal accesible.</p>
-  <p style="margin:6px 0; font-size:14px;">Contacto: <a href="mailto:contacto@iusapp.com" style="color:#60a5fa;">contacto@iusapp.com</a></p>
-  <p style="margin:6px 0; font-size:14px;">Proyecto académico — No constituye asesoría legal formal.</p>
-  <p style="margin:6px 0; font-size:14px;">&copy; <span id="year"></span> IUSAPP. Todos los derechos reservados.</p>
-</footer>
+          <div class="hero-metrics">
+            <div class="metric">
+              <div class="metric-label">Personas interesadas</div>
+              <div class="metric-value" id="metric-interes">0</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Áreas más consultadas</div>
+              <div class="metric-value">Familiar · Laboral</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <h2 class="form-title">Únete a la lista de espera</h2>
+          <p class="form-sub">
+            Déjanos tus datos y te enviaremos información prioritaria sobre el piloto de IUSAPP y recursos legales básicos.
+          </p>
+          <div class="form-banner">
+            Este formulario es solo para fines académicos. No sustituye asesoría legal formal.
+          </div>
+          <div class="gform-wrapper">
+            <iframe
+              id="gform"
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdb-rNkbN_kvuF0tNSbOloB8GhE5MxDAD0w5P3yYjzreyfAqg/viewform?embedded=true"
+              height="760"
+            >
+              Cargando…
+            </iframe>
+          </div>
+          <div class="form-actions">
+            <a
+              class="btn-primary"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdb-rNkbN_kvuF0tNSbOloB8GhE5MxDAD0w5P3yYjzreyfAqg/viewform"
+              target="_blank"
+              rel="noopener"
+            >
+              Abrir formulario en otra pestaña
+            </a>
+            <a
+              class="btn-secondary"
+              href="https://wa.me/5214420000000?text=Hola%20IUSAPP%2C%20ya%20llen%C3%A9%20el%20formulario%20y%20quiero%20saber%20mis%20pr%C3%B3ximos%20pasos"
+              target="_blank"
+              rel="noopener"
+            >
+              Contactar por WhatsApp
+            </a>
+          </div>
+          <p class="whatsapp-link">
+            También puedes escribirnos directamente a WhatsApp si tienes una duda específica.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>¿Por qué existe IUSAPP?</h2>
+        <p class="section-sub">
+          El sistema de justicia es complejo y muchas personas no saben por dónde empezar. IUSAPP busca ser una primera puerta
+          de entrada que explique, en lenguaje claro, qué opciones tienen y con quién pueden hablar.
+        </p>
+
+        <div class="benefits">
+          <div class="benefit-card">
+            <span class="benefit-tag">Problema</span>
+            <h3>Acceso desigual</h3>
+            <p>
+              Costos altos, trámites complejos y distancia a los juzgados hacen que muchas personas renuncien a ejercer sus derechos.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-tag">Solución</span>
+            <h3>Orientación digital</h3>
+            <p>
+              Un punto de contacto único donde responder dudas iniciales, organizar el caso y acercar a especialistas
+              según el tema.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-tag">Impacto</span>
+            <h3>Barrera de entrada más baja</h3>
+            <p>
+              Disminuir la fricción para pedir ayuda: menos miedo, más información y más rutas posibles para resolver un conflicto.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>¿Cómo funcionaría el servicio?</h2>
+        <p class="section-sub">
+          A partir de este MVP, se proyecta un flujo sencillo que acompañe a la persona desde la duda inicial hasta la posible
+          conexión con asesoría profesional.
+        </p>
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Cuéntanos tu situación</h3>
+            <p>
+              A través del formulario, recabamos información básica sobre tu caso y el área legal a la que pertenece.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Recibe orientación inicial</h3>
+            <p>
+              Te compartiremos materiales, rutas sugeridas y alternativas para entender mejor tus opciones legales.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Conexión con especialistas</h3>
+            <p>
+              En una siguiente etapa, podrás agendar asesorías con abogadas y abogados verificados que colaboren con el proyecto.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-final">
+        <h2>¿Te interesa participar en el piloto de IUSAPP?</h2>
+        <p>
+          Regístrate en el formulario y forma parte de las primeras personas en probar esta propuesta de acceso legal digital.
+          Tus comentarios nos ayudarán a mejorar el servicio.
+        </p>
+        <a
+          class="btn-primary"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdb-rNkbN_kvuF0tNSbOloB8GhE5MxDAD0w5P3yYjzreyfAqg/viewform"
+          target="_blank"
+          rel="noopener"
+        >
+          Quiero entrar a la lista de espera
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <p>IUSAPP — Plataforma digital de orientación legal accesible.</p>
+      <p>Proyecto académico. La información mostrada no constituye asesoría legal formal.</p>
+      <p>
+        Contacto: <a href="mailto:contacto@iusapp.com">contacto@iusapp.com</a>
+      </p>
+    </footer>
+  </div>
 
   <script>
-    // --- Métricas MVP (localStorage) ---
-    const get = (k, d=0) => Number(localStorage.getItem(k) ?? d);
-    const set = (k, v) => localStorage.setItem(k, String(v));
-
-    const visitasEl  = document.getElementById('visitas');
-    const clicsEl    = document.getElementById('clics');
-    const regsEl     = document.getElementById('registros');
-
-    // Incrementa visitas una vez por sesión
-    if (!sessionStorage.getItem('visited')) {
-      set('ius_visitas', get('ius_visitas') + 1);
-      sessionStorage.setItem('visited', '1');
-    }
-    visitasEl.textContent = get('ius_visitas');
-    clicsEl.textContent   = get('ius_clics');
-    regsEl.textContent    = get('ius_regs');
-
-    const inc = (k) => { set(k, get(k) + 1); updateCounters(); };
-    const updateCounters = () => {
-      visitasEl.textContent = get('ius_visitas');
-      clicsEl.textContent   = get('ius_clics');
-      regsEl.textContent    = get('ius_regs');
-    };
-
-    document.getElementById('cta-top').addEventListener('click', () => inc('ius_clics'));
-    document.getElementById('cta-bottom').addEventListener('click', () => inc('ius_clics'));
-
-    // Marca registro cuando el formulario se envía
-    const form = document.getElementById('registro');
-    form.addEventListener('submit', (e) => {
-      // Si usas Formspree/Netlify quitar preventDefault para envío real
-      // e.preventDefault();
-      inc('ius_regs');
-    });
-
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mostrar la página tras el splash
-    window.addEventListener('load', () => {
-      // Fallback: elimina el splash por si falla la animación en algunos navegadores
-      setTimeout(() => {
-        const sp = document.getElementById('splash');
-        if (sp) sp.style.display = 'none';
-      }, 2600);
-      resizeGForm();
-    });
-    window.addEventListener('resize', () => resizeGForm());
-
-    function resizeGForm(){
-      const el = document.getElementById('gform');
-      if(!el) return;
-      // Altura responsiva: mínimo 720px, máximo 1100px, o 85vh
-      const h = Math.max(720, Math.min(1100, Math.round(window.innerHeight * 0.85)));
-      el.style.height = h + 'px';
-    }
+    // Ejemplo simple de métrica visible (puedes cambiar el número cuando tengas datos reales)
+    document.getElementById('metric-interes').textContent = '0';
   </script>
 </body>
 </html>
-
-
-
