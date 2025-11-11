@@ -75,14 +75,33 @@
   <div id="splash">
     <img src="logo.png" alt="IUSAPP Logo">
   </div>
-  <style>
-    #splash { position: fixed; z-index: 9999; inset: 0; background: #0f172a; display: flex; justify-content: center; align-items: center; animation: fadeOut 1s ease 2s forwards; }
-    #splash img { width: 160px; opacity: 0; animation: fadeIn 1.2s ease forwards; filter: drop-shadow(0 8px 24px rgba(0,0,0,.35)); }
-  @keyframes fadeIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
-  @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
-  #splash { pointer-events: none; } }
-  /* mejora de transición de la página */
-  /* quitamos gating por JS para evitar pantalla vacía */
+ <style>
+    #splash {
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeOut 1s ease 2s forwards;
+      pointer-events: none;
+    }
+
+    #splash img {
+      width: 160px;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,.35));
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
     }
   </style>
   <header class="container">
