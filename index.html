@@ -256,6 +256,15 @@
       font-weight:600;
       font-size: 13px;
       border:none;
+      .btn-primary {
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(37,99,235,.6);
+  filter: brightness(1.05);
+}
     }
 
     .btn-secondary {
@@ -418,7 +427,17 @@
         display:none;
       }
     }
+     body {
+    opacity: 0;
+    transition: opacity .4s ease;
+  }
+
+  body.loaded {
+    opacity: 1;
+  }
   </style>
+
+  
 </head>
 <body>
   <div class="page">
@@ -607,6 +626,9 @@
   <script>
     // Ejemplo simple de métrica visible (puedes cambiar el número cuando tengas datos reales)
     document.getElementById('metric-interes').textContent = '0';
+      window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
   </script>
 </body>
 </html>
